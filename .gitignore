@@ -1,0 +1,6 @@
+# Private network and server settings (copy secrets.example.h to secrets.h)
+secrets.h
+
+# PlatformIO build output
+.pio/
+.vscode/

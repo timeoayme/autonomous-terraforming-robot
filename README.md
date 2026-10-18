@@ -1,420 +1,193 @@
-## Integrated Autonomous Robot Controller
+# Autonomous Terraforming Robot
 
-The integrated controller combines:
+A line-following, RFID-aware robot that explores a gridded arena, asks a game server which fields are fertile, plants seeds in them, and drives itself back to base when an emergency is declared. Built on an Arduino GIGA R1 WiFi with PlatformIO, as a UCL team project.
 
-* Black-line navigation
-* IMU-guided turning
-* RFID checkpoint handling
-* MiniMessenger server communication
-* Ultrasonic obstacle detection
-* Tunnel wall following
-* Automated seed planting
-* Emergency return-to-base behaviour
+![Software overview](software_overview_diagram.png)
 
-The codebase is developed as a **PlatformIO** project. The public GitHub repository also contains exported top-level source files, system diagrams, flowcharts, test logs, screenshots, and field-test videos for assessment and review.
+## Team
 
-## Repository Structure
+Built by Timeo Ayme ([@timeoayme](https://github.com/timeoayme)) together with three teammates, as a UCL team project.
 
-```text
-.
-├── final.cpp
-├── planting.cpp
-├── return_to_base.cpp
-├── platform_io/
-├── secrets.h
-├── software_overview_diagram.png
-├── flowcharts/
-│   ├── mechanical_kill_switch.png
-│   ├── RFID_planting.png
-│   └── line_following.png
-└── Testing_Calibration_Evidence/
+## What the Robot Does
+
+1. **Waits in a safe state.** It boots stopped and only moves after the mechanical run toggle (D45) is pressed.
+2. **Follows the black line** using a 5-channel reflectance array and PID steering.
+3. **Handles the grid.** It detects corners, T-junctions and dead ends, and makes IMU-guided 90° and 180° turns.
+4. **Recovers when the line is lost** with short search turns, yaw-hold driving, or ultrasonic wall following in tunnels.
+5. **Reads RFID tags** as checkpoints. The first tag is the airlock; later tags trigger a fertility query to the server.
+6. **Plants seeds** with a continuous-rotation servo, but only after the server confirms the field is fertile and not already planted. It then reports `seedPlanted`.
+7. **Returns to base** on an emergency command, planning a route to the grid exit at `(9, 7)`.
+
+## Hardware
+
+| Part | Role |
+| --- | --- |
+| Arduino GIGA R1 WiFi | Main controller |
+| Pololu QTR-5 reflectance array | Line tracking (RC-decay timing) |
+| 3× ultrasonic rangefinders (front, left, right) | Obstacle detection and tunnel wall following |
+| ICM-20948 IMU | Gyro-integrated yaw for turns and heading hold |
+| WS1850S RFID reader (I²C, `0x28`) | Checkpoint and tag identification |
+| 2× Pololu Motoron shields (I²C, `0x10` and `0x11`) | Motor drivers |
+| 4WD chassis with 4× N20 gearmotors and quadrature encoders | Drive and odometry |
+| DF9GMS 360° continuous servo | Seed planter |
+| Mechanical kill switch (D45), revive button (D32), red/green status LEDs | Safety and status |
+
+## Repository Contents
+
+| Path | Description |
+| --- | --- |
+| `final.cpp` | Main integrated controller (the `main.cpp` of the PlatformIO project) |
+| `planting.cpp` | Standalone field-planting controller (`pre_emergency_planting` environment) |
+| `return_to_base.cpp` | Standalone emergency-return test (`back_to_base` environment) |
+| `platform_io` | Exported `platformio.ini` with all build environments |
+| `secrets.example.h` | Template for private network and server settings |
+| `software_overview_diagram.png` | System architecture diagram |
+| `flowcharts/` | Flowcharts for line following, RFID planting and the mechanical kill switch |
+| `Testing_Calibration_Evidence/` | Serial logs from test runs |
+
+The source files in this repo are exports from the full PlatformIO project, which is split into one `src/` file per behaviour. To rebuild it, create a PlatformIO project, copy `platform_io` to `platformio.ini`, and place the `.cpp` files in `src/` under the names the environments expect (`final.cpp` becomes `main.cpp`).
+
+## Getting Started
+
+### Prerequisites
+
+- [PlatformIO](https://platformio.org/) (CLI or VS Code extension)
+- An Arduino GIGA R1 WiFi connected over USB-C
+- Access to the challenge server's network for online mode
+
+Library dependencies are installed automatically from `lib_deps`:
+
+| Library | Purpose |
+| --- | --- |
+| `motoron-arduino` (Pololu) | Motor controller communication |
+| `MFRC522_I2C` | RFID reader |
+| SparkFun ICM-20948 library | IMU |
+| `ArduinoMqttClient` | MQTT transport |
+| `MiniMessenger` | Challenge-server messaging |
+| `Servo` | Seed planter servo |
+
+### Configure private settings
+
+The firmware includes a `secrets.h` that is deliberately **not** committed. Copy the template and fill in your own values:
+
+```bash
+cp secrets.example.h secrets.h
 ```
-
-| File or directory               | Description                                                   |
-| ------------------------------- | ------------------------------------------------------------- |
-| `final.cpp`                     | Main integrated robot controller                              |
-| `planting.cpp`                  | Standalone field-planting controller                          |
-| `return_to_base.cpp`            | Standalone emergency return test                              |
-| `platform_io/`                  | PlatformIO project configuration and exported project files   |
-| `secrets.h`                     | Private network and server configuration                      |
-| `software_overview_diagram.png` | High-level software architecture diagram                      |
-| `flowcharts/`                   | Flowcharts for major robot behaviours                         |
-| `Testing_Calibration_Evidence/` | Logs, screenshots, calibration records, and field-test videos |
-
-## Main Controller Behaviour
-
-The integrated controller:
-
-* Starts in a stopped safety state and waits for the mechanical **D45 run toggle**.
-* Registers with the challenge server through MiniMessenger when online mode is enabled.
-* Continuously services:
-
-  * server messages;
-  * control buttons;
-  * status LEDs;
-  * motor encoders;
-  * IMU yaw data;
-  * RFID input;
-  * planting servo control;
-  * ultrasonic sensors.
-* Follows a black line using five reflectance sensor outputs and PID steering.
-* Detects corners and T-junctions, then performs IMU-guided 90° or 180° turns.
-* Uses short search turns, yaw-hold driving, or tunnel wall following when the line is lost.
-* Treats the first detected RFID tag as the airlock checkpoint.
-* Treats later RFID tags as fertility-query checkpoints.
-* Plants a seed only after receiving a positive fertility response from the server.
-* Queues a `seedPlanted` report after the servo planting cycle completes.
-* Stops the current action during an emergency and plans a return route towards grid exit `(9, 7)`.
-
-## Software Architecture
-
-The main controller is designed around a continuously running service loop.
-
-```text
-Start
-  │
-  ▼
-Safety wait for D45
-  │
-  ▼
-Initialise hardware and communications
-  │
-  ▼
-Main control loop
-  ├── Process MiniMessenger messages
-  ├── Read safety buttons
-  ├── Update LEDs
-  ├── Read reflectance sensors
-  ├── Update motor encoders
-  ├── Update IMU yaw
-  ├── Check RFID
-  ├── Check ultrasonic sensors
-  ├── Run navigation behaviour
-  ├── Run planting behaviour
-  └── Handle emergency return
-```
-
-The main loop must continue calling:
 
 ```cpp
-serverMessenger.loop();
-```
-
-This ensures that emergency, disable, heartbeat, airlock, and RFID fertility messages are processed promptly.
-
-## Required Libraries
-
-PlatformIO installs the external dependencies through `lib_deps`.
-
-| Library                                                    | Purpose                                               |
-| ---------------------------------------------------------- | ----------------------------------------------------- |
-| `Motoron`                                                  | Dual motor-controller communication and motor control |
-| `MFRC522_I2C`                                              | WS1850S / MFRC522-compatible RFID communication       |
-| `SparkFun 9DoF IMU Breakout - ICM 20948 - Arduino Library` | Orientation and yaw measurements                      |
-| `ArduinoMqttClient`                                        | MQTT communication                                    |
-| `MiniMessenger`                                            | Challenge-server message handling                     |
-| `Servo`                                                    | Seed-planting servo control                           |
-| `Arduino`                                                  | Core Arduino framework                                |
-| `Wire`                                                     | I²C communication                                     |
-
-## Private Configuration
-
-Keep `secrets.h` in the same source or sketch directory as the integrated controller.
-
-Do not publish real credentials. Use a local file similar to:
-
-```cpp
-#pragma once
-
-#define WIFI_SSID "YOUR_WIFI_SSID"
+#define WIFI_SSID     "YOUR_WIFI_SSID"
 #define WIFI_PASSWORD "YOUR_WIFI_PASSWORD"
-#define BROKER_HOST "YOUR_BROKER_IP"
-#define BROKER_PORT 1883
-#define GROUP_ID "YOUR_GROUP_ID"
-#define BOARD_ID "YOUR_BOARD_ID"
+#define BROKER_HOST   "YOUR_BROKER_IP"
+#define BROKER_PORT   1883
+#define GROUP_ID      "YOUR_GROUP_ID"
+#define BOARD_ID      "YOUR_BOARD_ID"
 ```
 
+`secrets.h` is listed in `.gitignore`, so your credentials will not be committed by accident.
 
-## Build and Upload
-
-### Compile the project
-
-Run a full compilation before submitting changes:
+### Build and upload
 
 ```bash
-pio run
+pio run                        # compile the default environment (giga_r1_m7, the main controller)
+pio run -t upload              # upload it
+pio run -e back_to_base -t upload             # upload the emergency-return test
+pio run -e pre_emergency_planting -t upload   # upload the planting controller
 ```
 
-### Upload the default integrated controller
+Open the serial monitor at 115200 baud (the port differs per computer; `pio device list` shows what is connected):
 
 ```bash
-pio run -t upload
+pio device monitor --baud 115200
 ```
 
-### Upload a specific PlatformIO environment
+The exported `platform_io` file sets `monitor_port` to a macOS path (`/dev/cu.usbmodem101`). Change it for your machine.
 
-```bash
-pio run -e final -t upload
-```
+### Pre-run checklist
 
+1. Put the robot on a safe surface with the driven wheels clear of the ground.
+2. Connect USB-C and open the serial monitor.
+3. Keep the robot still during IMU gyro and tilt calibration.
+4. Check the startup log for the IMU, both Motoron controllers (`0x10`, `0x11`), the RFID reader (`0x28`), the ultrasonic sensors, the reflectance array and the encoders.
+5. Confirm the red LED shows the stopped safety state, then press **D45** once to allow movement. **D45** toggles between stopped and running; **D32** revives after manual intervention.
+6. In online mode, stay on the lab network and check that the server dashboard's enable and disable commands work before a full run.
 
-### Open the serial monitor
+## How It Works
 
-```bash
-pio device monitor \
-  -e giga_r1_m7 \
-  --port /dev/cu.usbmodem101 \
-  --baud 115200
-```
+### Control loop
 
-The serial port may differ between computers. To list available devices, run:
-
-```bash
-pio device list
-```
-
-### PlatformIO executable not on `PATH`
-
-On macOS, the PlatformIO executable may be located inside its virtual environment:
-
-```bash
-~/.platformio/penv/bin/platformio run
-```
-
-To upload:
-
-```bash
-~/.platformio/penv/bin/platformio run -t upload
-```
-
-Avoid documenting a machine-specific username such as `/Users/admin/` because that path will not work on other computers.
-
-## Arduino IDE Export
-
-PlatformIO is the preferred development environment.
-
-For an Arduino IDE submission:
-
-1. Copy the validated integrated source into an Arduino sketch such as `final.ino`.
-
-2. Place a private `secrets.h` tab in the same sketch folder.
-
-3. Install all required libraries.
-
-4. Select:
-
-   ```text
-   Arduino Mbed OS GIGA Boards → Arduino GIGA R1
-   ```
-
-5. Verify the sketch.
-
-6. Upload it to the board.
-
-7. Open the Serial Monitor at `115200` baud.
-
-## Operating Checklist
-
-Before testing the robot:
-
-1. Place the robot on a safe test surface.
-2. Keep the driven wheels clear of the ground until movement is expected.
-3. Connect the USB-C cable.
-4. Open the Serial Monitor at `115200` baud.
-5. Keep the robot stationary during IMU gyroscope and tilt calibration.
-6. Confirm successful startup messages for:
-
-   * the IMU;
-   * Motoron controllers at `0x10` and `0x11`;
-   * the RFID module at `0x28`;
-   * the ultrasonic sensors;
-   * reflectance sensors and motor encoders.
-7. Confirm that the red startup LED indicates the stopped safety state.
-8. Press **D45** once to permit movement.
-9. Use **D45** to toggle between stopped and running states during local testing.
-10. Use **D32** for revive or green-status indication after manual intervention.
-11. In online mode, keep the laptop or debugging device connected to the laboratory network.
-12. Verify server-dashboard enable and disable behaviour before beginning a full run.
-
-## Server Communication
-
-### Outgoing Messages
-
-The robot may send the following message types:
+The controller runs one non-blocking service loop. `serverMessenger.loop()` must be called every pass so that emergency, disable, heartbeat, airlock and fertility messages are handled promptly.
 
 ```text
-type=register
-type=openAirlock
-type=isFertile
-type=seedPlanted
+Safety wait for D45
+  → initialise hardware and communications
+  → main loop:
+      process server messages → read safety buttons → update LEDs
+      → read reflectance sensors, encoders, IMU yaw, RFID, ultrasonics
+      → run navigation → run planting → handle emergency return
 ```
 
-| Message       | Purpose                                           |
-| ------------- | ------------------------------------------------- |
-| `register`    | Registers the robot with the challenge server     |
-| `openAirlock` | Requests access through the airlock checkpoint    |
-| `isFertile`   | Queries whether the current RFID field is fertile |
-| `seedPlanted` | Reports completion of a planting action           |
+Behaviour is prioritised: safety and emergency handling first, line-loss recovery second, normal line following and grid turns last.
 
-### Incoming Messages
+### Navigation
 
-The controller handles:
+- **Line following:** PID steering on the estimated line position (`error = target - measured`), adjusting relative motor speeds.
+- **Junctions:** corners, T-junctions, dead ends and line loss are classified from the reflectance array, then resolved with IMU-guided 90° left, 90° right or 180° turns.
+- **Line-loss recovery:** a short search turn, then yaw-hold driving, then ultrasonic wall following, then a recovery turn based on the last known line direction.
+- **Uphill handling:** IMU tilt, roll and pitch thresholds detect slopes so the controller can adapt to them.
+
+### RFID and planting
 
 ```text
-type=heartbeat enable=...
-type=disable enabled=...
-type=emergency enabled=...
-type=openAirlockReply accepted=...
-type=isFertileReply fertile=... planted=... x=... y=...
+RFID tag detected
+  → send isFertile request
+  → wait for isFertileReply
+      ├── fertile=false or planted=true → continue navigating
+      └── fertile=true and planted=false
+            → run servo planting cycle → send seedPlanted
 ```
 
-| Message            | Purpose                                                       |
-| ------------------ | ------------------------------------------------------------- |
-| `heartbeat`        | Communicates the current server-enabled state                 |
-| `disable`          | Enables or disables robot operation remotely                  |
-| `emergency`        | Activates or clears emergency behaviour                       |
-| `openAirlockReply` | Reports whether the airlock request was accepted              |
-| `isFertileReply`   | Returns field fertility, planting state, and grid coordinates |
+The robot never plants without a positive server reply.
 
-## Navigation Behaviour
+### Emergency return
 
-### Line Following
+On an emergency command the robot stops its current action, works out its grid position and heading, plans a route to `(9, 7)`, and drives back while continuing to service safety and server messages. Emergency handling takes priority over line following, RFID handling and planting.
 
-The robot follows the black line using five reflectance sensor outputs and PID steering.
+### Server protocol
 
-The controller uses the estimated line position to calculate a steering correction:
+Outgoing messages:
 
-```text
-error = target position - measured line position
-```
+| Message | Purpose |
+| --- | --- |
+| `register` | Register the robot with the challenge server |
+| `openAirlock` | Request access through the airlock checkpoint |
+| `isFertile` | Ask whether the current RFID field is fertile |
+| `seedPlanted` | Report a completed planting action |
 
-The PID output adjusts the relative motor speeds to keep the robot centred over the line.
+Incoming messages:
 
-### Junction Handling
+| Message | Purpose |
+| --- | --- |
+| `heartbeat` | Current server-enabled state |
+| `disable` | Enable or disable the robot remotely |
+| `emergency` | Start or clear emergency behaviour |
+| `openAirlockReply` | Whether the airlock request was accepted |
+| `isFertileReply` | Fertility, planting state and grid coordinates |
 
-The navigation controller detects:
+## Flowcharts
 
-* corners;
-* left and right turns;
-* T-junctions;
-* dead ends;
-* line-loss conditions.
+| Line following | RFID planting | Mechanical kill switch |
+| --- | --- | --- |
+| ![Line following flowchart](flowcharts/line_following.png) | ![RFID planting flowchart](flowcharts/RFID_planting.png) | ![Mechanical kill switch flowchart](flowcharts/mechanical_kill_switch.png) |
 
-Detected junctions are resolved using IMU-guided turns, typically through:
+## Testing and Calibration
 
-* 90° left turns;
-* 90° right turns;
-* 180° U-turns.
-
-### Line-Loss Recovery
-
-When the line is lost, the controller may use:
-
-1. A short directional search turn.
-2. IMU yaw-hold driving.
-3. Ultrasonic tunnel wall following.
-4. A recovery turn based on the most recently detected line direction.
-
-## RFID and Planting Behaviour
-
-The first recognised RFID checkpoint is treated as the airlock.
-
-Later RFID tags initiate a field-fertility query:
-
-```text
-Robot detects RFID
-        │
-        ▼
-Send isFertile request
-        │
-        ▼
-Wait for isFertileReply
-        │
-        ├── fertile=false ──► Continue navigation
-        │
-        ├── planted=true ───► Continue navigation
-        │
-        └── fertile=true
-                │
-                ▼
-         Run servo planting cycle
-                │
-                ▼
-         Send seedPlanted report
-```
-
-The robot must not plant until a positive server reply confirms that:
-
-* the field is fertile; and
-* the field has not already been planted.
-
-## Emergency Behaviour
-
-When an emergency command is received, the controller:
-
-1. Stops the current navigation or planting action.
-2. Prevents normal mission behaviour from continuing.
-3. Determines the current grid position and orientation.
-4. Plans a route towards exit coordinate `(9, 7)`.
-5. Executes the return-to-base behaviour while continuing to process safety and server messages.
-
-Emergency behaviour should always have priority over normal line following, RFID handling, and planting.
-
-## Testing and Calibration Evidence
-
-Compile the project before recording test evidence:
-
-```bash
-pio run
-```
-
-Capture serial output using:
-
-```bash
-pio device monitor \
-  -e giga_r1_m7 \
-  --port /dev/cu.usbmodem101 \
-  --baud 115200
-```
-
-Recommended evidence includes:
-
-* Successful PlatformIO compilation
-* Complete startup log
-* IMU initialisation and calibration
-* Motoron detection at addresses `0x10` and `0x11`
-* RFID initialisation at address `0x28`
-* Ultrasonic sensor initialisation
-* Reflectance sensor readings on:
-
-  * black line;
-  * light floor;
-  * junctions;
-  * line-loss conditions.
-* PID line-following tests
-* 90° corner-turn logs
-* 180° U-turn logs
-* RFID airlock interaction
-* Fertility-query response
-* Successful planting cycle
-* `seedPlanted` transmission
-* Remote disable behaviour
-* Emergency return-to-base behaviour
-* Short videos showing:
-
-  * stable line following;
-  * junction handling;
-  * U-turns;
-  * slope traversal;
-  * tunnel wall following;
-  * RFID detection;
-  * seed planting.
+`Testing_Calibration_Evidence/Logs_Terminal` is a serial capture from an integration run, showing sensor readings, state transitions (`CORRECT_LEFT`, `FORWARD_PULSE`, ...) and ultrasonic and yaw data.
 
 ## Known Limitations
 
-* Robot performance depends on reflectance and ultrasonic calibration for the test environment.
-* IMU drift may reduce turning accuracy over long runs.
-* RFID and server replies introduce asynchronous delays.
-* Network loss may prevent online checkpoint handling.
-* Line-loss recovery depends on the robot's previous direction and surrounding geometry.
-* Emergency route planning assumes that the robot's internal grid position remains accurate.
+- Performance depends on reflectance and ultrasonic calibration for the test environment.
+- IMU drift can reduce turning accuracy over long runs.
+- RFID and server replies arrive asynchronously, which adds delay.
+- Network loss prevents online checkpoint handling.
+- Line-loss recovery depends on the robot's previous direction and the surrounding geometry.
+- Emergency route planning assumes the robot's internal grid position is still accurate.
