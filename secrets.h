@@ -1,0 +1,8 @@
+#pragma once 
+
+#define WIFI_SSID "YOUR_WIFI_SSID" 
+#define WIFI_PASSWORD "YOUR_WIFI_PASSWORD" 
+#define BROKER_HOST "YOUR_BROKER_IP" 
+#define BROKER_PORT 1883 
+#define GROUP_ID "YOUR_GROUP_ID" 
+#define BOARD_ID "YOUR_BOARD_ID"

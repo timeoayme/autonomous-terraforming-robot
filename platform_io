@@ -1,0 +1,385 @@
+[platformio]
+default_envs = giga_r1_m7
+
+[env:giga_r1_m7]
+platform = ststm32
+board = giga_r1_m7
+framework = arduino
+upload_protocol = dfu
+board_upload.disable_flushing = true
+monitor_port = /dev/cu.usbmodem101
+monitor_speed = 115200
+
+build_src_filter =
+  +<main.cpp>
+  -<pre_emergency_planting.cpp>
+  -<back_to_base.cpp>
+  -<GridObstacleStandalone.cpp>
+  -<KillS_Reflectance_bend.cpp>
+  -<Test_reflectance.cpp>
+  -<Test_encoder.cpp>
+  -<US.cpp>
+  -<IMU.cpp>
+
+lib_deps =
+  https://github.com/pololu/motoron-arduino.git
+  kkloesener/MFRC522_I2C
+  sparkfun/SparkFun 9DoF IMU Breakout - ICM 20948 - Arduino Library
+  arduino-libraries/ArduinoMqttClient
+  alexandros-charitonidis/MiniMessenger
+  arduino-libraries/Servo
+
+[env:grid_obstacle_avoidance]
+platform = ststm32
+board = giga_r1_m7
+framework = arduino
+upload_protocol = dfu
+board_upload.disable_flushing = true
+monitor_port = /dev/cu.usbmodem101
+monitor_speed = 115200
+
+build_src_filter =
+  +<GridObstacleStandalone.cpp>
+  -<main.cpp>
+  -<KillS_Reflectance_bend.cpp>
+  -<Test_reflectance.cpp>
+  -<Test_encoder.cpp>
+  -<US.cpp>
+  -<IMU.cpp>
+
+lib_deps =
+  https://github.com/pololu/motoron-arduino.git
+  kkloesener/MFRC522_I2C
+  sparkfun/SparkFun 9DoF IMU Breakout - ICM 20948 - Arduino Library
+
+[env:wall_following]
+platform = ststm32
+board = giga_r1_m7
+framework = arduino
+upload_protocol = dfu
+board_upload.disable_flushing = true
+monitor_port = /dev/cu.usbmodem101
+monitor_speed = 115200
+
+build_src_filter =
+  +<Candidate_Code/wall_following.cpp>
+  -<main.cpp>
+  -<Candidate_Code/obstacle_avoid.cpp>
+  -<GridObstacleStandalone.cpp>
+  -<KillS_Reflectance_bend.cpp>
+  -<Test_reflectance.cpp>
+  -<Test_encoder.cpp>
+  -<US.cpp>
+  -<IMU.cpp>
+
+lib_deps =
+  https://github.com/pololu/motoron-arduino.git
+
+[env:solid_navi]
+platform = ststm32
+board = giga_r1_m7
+framework = arduino
+upload_protocol = dfu
+board_upload.disable_flushing = true
+monitor_port = /dev/cu.usbmodem101
+monitor_speed = 115200
+
+build_src_filter =
+  +<Candidate_Code/solid_navi.cpp>
+  -<main.cpp>
+  -<Candidate_Code/obstacle_avoid.cpp>
+  -<Candidate_Code/wall_following.cpp>
+  -<GridObstacleStandalone.cpp>
+  -<KillS_Reflectance_bend.cpp>
+  -<Test_reflectance.cpp>
+  -<Test_encoder.cpp>
+  -<US.cpp>
+  -<IMU.cpp>
+
+lib_deps =
+  https://github.com/pololu/motoron-arduino.git
+  kkloesener/MFRC522_I2C
+  sparkfun/SparkFun 9DoF IMU Breakout - ICM 20948 - Arduino Library
+
+[env:dead_reckoning]
+platform = ststm32
+board = giga_r1_m7
+framework = arduino
+upload_protocol = dfu
+board_upload.disable_flushing = true
+monitor_port = /dev/cu.usbmodem101
+monitor_speed = 115200
+
+build_src_filter =
+  +<Candidate_Code/dead_reckoning.cpp>
+  -<main.cpp>
+  -<Candidate_Code/solid_navi.cpp>
+  -<Candidate_Code/obstacle_avoid.cpp>
+  -<Candidate_Code/wall_following.cpp>
+  -<GridObstacleStandalone.cpp>
+  -<KillS_Reflectance_bend.cpp>
+  -<Test_reflectance.cpp>
+  -<Test_encoder.cpp>
+  -<US.cpp>
+  -<IMU.cpp>
+
+lib_deps =
+  https://github.com/pololu/motoron-arduino.git
+  kkloesener/MFRC522_I2C
+  sparkfun/SparkFun 9DoF IMU Breakout - ICM 20948 - Arduino Library
+
+[env:back_to_base]
+platform = ststm32
+board = giga_r1_m7
+framework = arduino
+upload_protocol = dfu
+board_upload.disable_flushing = true
+monitor_port = /dev/cu.usbmodem101
+monitor_speed = 115200
+
+build_src_filter =
+  +<back_to_base.cpp>
+  -<main.cpp>
+  -<pre_emergency_planting.cpp>
+  -<Candidate_Code/solid_navi.cpp>
+  -<Candidate_Code/dead_reckoning.cpp>
+  -<Candidate_Code/touch_revival.cpp>
+  -<Candidate_Code/obstacle_avoid.cpp>
+  -<Candidate_Code/wall_following.cpp>
+  -<Candidate_Code/follow_line.cpp>
+  -<GridObstacleStandalone.cpp>
+  -<KillS_Reflectance_bend.cpp>
+  -<Test_reflectance.cpp>
+  -<Test_encoder.cpp>
+  -<US.cpp>
+  -<IMU.cpp>
+
+lib_deps =
+  https://github.com/pololu/motoron-arduino.git
+  kkloesener/MFRC522_I2C
+  sparkfun/SparkFun 9DoF IMU Breakout - ICM 20948 - Arduino Library
+  arduino-libraries/ArduinoMqttClient
+  alexandros-charitonidis/MiniMessenger
+
+[env:pre_emergency_planting]
+platform = ststm32
+board = giga_r1_m7
+framework = arduino
+upload_protocol = dfu
+board_upload.disable_flushing = true
+monitor_port = /dev/cu.usbmodem101
+monitor_speed = 115200
+
+build_src_filter =
+  +<pre_emergency_planting.cpp>
+  -<main.cpp>
+  -<back_to_base.cpp>
+  -<Candidate_Code/solid_navi.cpp>
+  -<Candidate_Code/dead_reckoning.cpp>
+  -<Candidate_Code/touch_revival.cpp>
+  -<Candidate_Code/obstacle_avoid.cpp>
+  -<Candidate_Code/wall_following.cpp>
+  -<Candidate_Code/follow_line.cpp>
+  -<GridObstacleStandalone.cpp>
+  -<KillS_Reflectance_bend.cpp>
+  -<Test_reflectance.cpp>
+  -<Test_encoder.cpp>
+  -<US.cpp>
+  -<IMU.cpp>
+
+lib_deps =
+  https://github.com/pololu/motoron-arduino.git
+  kkloesener/MFRC522_I2C
+  sparkfun/SparkFun 9DoF IMU Breakout - ICM 20948 - Arduino Library
+  arduino-libraries/ArduinoMqttClient
+  alexandros-charitonidis/MiniMessenger
+  arduino-libraries/Servo
+
+[env:touch_revival]
+platform = ststm32
+board = giga_r1_m7
+framework = arduino
+upload_protocol = dfu
+board_upload.disable_flushing = true
+monitor_port = /dev/cu.usbmodem101
+monitor_speed = 115200
+
+build_src_filter =
+  +<Candidate_Code/touch_revival.cpp>
+  -<main.cpp>
+  -<Candidate_Code/solid_navi.cpp>
+  -<Candidate_Code/dead_reckoning.cpp>
+  -<Candidate_Code/obstacle_avoid.cpp>
+  -<Candidate_Code/wall_following.cpp>
+  -<GridObstacleStandalone.cpp>
+  -<KillS_Reflectance_bend.cpp>
+  -<Test_reflectance.cpp>
+  -<Test_encoder.cpp>
+  -<US.cpp>
+  -<IMU.cpp>
+
+lib_deps =
+  https://github.com/pololu/motoron-arduino.git
+
+[env:follow_line]
+platform = ststm32
+board = giga_r1_m7
+framework = arduino
+upload_protocol = dfu
+board_upload.disable_flushing = true
+monitor_port = /dev/cu.usbmodem101
+monitor_speed = 115200
+
+build_src_filter =
+  +<Candidate_Code/follow_line.cpp>
+  -<main.cpp>
+  -<Candidate_Code/solid_navi.cpp>
+  -<Candidate_Code/dead_reckoning.cpp>
+  -<Candidate_Code/touch_revival.cpp>
+  -<Candidate_Code/obstacle_avoid.cpp>
+  -<Candidate_Code/wall_following.cpp>
+  -<GridObstacleStandalone.cpp>
+  -<KillS_Reflectance_bend.cpp>
+  -<Test_reflectance.cpp>
+  -<Test_encoder.cpp>
+  -<US.cpp>
+  -<IMU.cpp>
+
+lib_deps =
+  https://github.com/pololu/motoron-arduino.git
+  sparkfun/SparkFun 9DoF IMU Breakout - ICM 20948 - Arduino Library
+
+[env:fast_pid_line]
+platform = ststm32
+board = giga_r1_m7
+framework = arduino
+upload_protocol = dfu
+board_upload.disable_flushing = true
+monitor_port = /dev/cu.usbmodem101
+monitor_speed = 115200
+
+build_src_filter =
+  +<Candidate_Code/fast_pid_line.cpp>
+  -<main.cpp>
+  -<back_to_base.cpp>
+  -<pre_emergency_planting.cpp>
+  -<Candidate_Code/follow_line.cpp>
+  -<Candidate_Code/solid_navi.cpp>
+  -<Candidate_Code/dead_reckoning.cpp>
+  -<Candidate_Code/touch_revival.cpp>
+  -<Candidate_Code/obstacle_avoid.cpp>
+  -<Candidate_Code/wall_following.cpp>
+  -<Candidate_Code/encoder_speed_diagnostic.cpp>
+
+lib_deps =
+  https://github.com/pololu/motoron-arduino.git
+  sparkfun/SparkFun 9DoF IMU Breakout - ICM 20948 - Arduino Library
+
+[env:obstacle_avoid]
+platform = ststm32
+board = giga_r1_m7
+framework = arduino
+upload_protocol = dfu
+board_upload.disable_flushing = true
+monitor_port = /dev/cu.usbmodem101
+monitor_speed = 115200
+
+build_src_filter =
+  +<Candidate_Code/obstacle_avoid.cpp>
+  -<main.cpp>
+  -<Candidate_Code/solid_navi.cpp>
+  -<Candidate_Code/dead_reckoning.cpp>
+  -<Candidate_Code/touch_revival.cpp>
+  -<Candidate_Code/wall_following.cpp>
+  -<Candidate_Code/follow_line.cpp>
+  -<GridObstacleStandalone.cpp>
+  -<KillS_Reflectance_bend.cpp>
+  -<Test_reflectance.cpp>
+  -<Test_encoder.cpp>
+  -<US.cpp>
+  -<IMU.cpp>
+
+lib_deps =
+  https://github.com/pololu/motoron-arduino.git
+  kkloesener/MFRC522_I2C
+  sparkfun/SparkFun 9DoF IMU Breakout - ICM 20948 - Arduino Library
+
+[env:encoder_speed_diagnostic]
+platform = ststm32
+board = giga_r1_m7
+framework = arduino
+upload_protocol = dfu
+board_upload.disable_flushing = true
+monitor_port = /dev/cu.usbmodem101
+monitor_speed = 115200
+
+build_src_filter =
+  +<Candidate_Code/encoder_speed_diagnostic.cpp>
+  -<main.cpp>
+  -<back_to_base.cpp>
+  -<pre_emergency_planting.cpp>
+  -<Candidate_Code/solid_navi.cpp>
+  -<Candidate_Code/dead_reckoning.cpp>
+  -<Candidate_Code/touch_revival.cpp>
+  -<Candidate_Code/obstacle_avoid.cpp>
+  -<Candidate_Code/wall_following.cpp>
+  -<Candidate_Code/follow_line.cpp>
+  -<GridObstacleStandalone.cpp>
+  -<KillS_Reflectance_bend.cpp>
+  -<Test_reflectance.cpp>
+  -<Test_encoder.cpp>
+  -<US.cpp>
+  -<IMU.cpp>
+
+lib_deps =
+  https://github.com/pololu/motoron-arduino.git
+
+[env:rfid_test]
+platform = ststm32
+board = giga_r1_m7
+framework = arduino
+upload_protocol = dfu
+monitor_port = /dev/cu.usbmodem101
+monitor_speed = 115200
+
+build_src_filter =
+  +<main.cpp>
+  -<GridObstacleStandalone.cpp>
+  -<RFID.cpp>
+  -<main.c>
+  -<KillS_Reflectance_bend.cpp>
+  -<Test_reflectance.cpp>
+  -<Test_encoder.cpp>
+  -<US.cpp>
+  -<IMU.cpp>
+
+lib_deps =
+  kkloesener/MFRC522_I2C
+
+[env:rfid_uno_r4_wifi]
+platform = renesas-ra
+board = uno_r4_wifi
+framework = arduino
+monitor_speed = 115200
+
+build_src_filter =
+  +<RFID_UNO_R4.cpp>
+  -<main.cpp>
+  -<RFID.cpp>
+
+lib_deps =
+  kkloesener/MFRC522_I2C
+
+[env:rfid_uno_r4_minima]
+platform = renesas-ra
+board = uno_r4_minima
+framework = arduino
+monitor_speed = 115200
+
+build_src_filter =
+  +<RFID_UNO_R4.cpp>
+  -<main.cpp>
+  -<RFID.cpp>
+
+lib_deps =
+  kkloesener/MFRC522_I2C

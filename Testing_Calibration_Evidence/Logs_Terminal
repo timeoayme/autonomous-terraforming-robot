@@ -1,0 +1,226 @@
+---------------------------------------------------------------Example1_Integration_Version----------------------------------------------------
+
+--- Terminal on /dev/cu.usbmodem101 | 115200 8-N-1
+--- Available filters and text transformations: debug, default, direct, hexlify, log2file, nocontrol, printable, send_on_enter, time
+--- More details at https://bit.ly/pio-monitor-filters
+--- Quit: Ctrl+C | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H
+STATUS | US Front=43.2cm Left=33.6cm Right=NAcm | Yaw=8.5 | Kill=RUN | Planter=IDLE | State=PRE_CORRECT_STOP
+State: CORRECT_LEFT
+CORRECT_LEFT O1(D22)=174  O2(D23)=1  O3(D24)=152  O4(D25)=3000  O5(D26)=286  O6(D27)=3000  O7(D28)=573* O8(D30)=3000  O9(D31)=393* | lastDir=-1 corrDir=-1 routeTurn=0 yaw=8.5
+State: PRE_CORRECT_STOP
+State: CORRECT_LEFT
+CORRECT_LEFT O1(D22)=170  O2(D23)=1  O3(D24)=152  O4(D25)=3000  O5(D26)=287  O6(D27)=3000  O7(D28)=564* O8(D30)=3000  O9(D31)=391* | lastDir=-1 corrDir=-1 routeTurn=0 yaw=9.1
+SENSE O1(D22)=178  O2(D23)=1  O3(D24)=163  O4(D25)=3000  O5(D26)=336* O6(D27)=3000  O7(D28)=516* O8(D30)=3000  O9(D31)=328* | lastDir=-1 corrDir=-1 routeTurn=0 yaw=7.7
+State: FORWARD_PULSE
+SENSE O1(D22)=163  O2(D23)=1  O3(D24)=142  O4(D25)=3000  O5(D26)=268  O6(D27)=3000  O7(D28)=570* O8(D30)=3000  O9(D31)=425* | lastDir=0 corrDir=0 routeTurn=0 yaw=8.9
+State: PRE_CORRECT_STOP
+State: CORRECT_LEFT
+CORRECT_LEFT O1(D22)=173  O2(D23)=1  O3(D24)=148  O4(D25)=3000  O5(D26)=269  O6(D27)=3000  O7(D28)=571* O8(D30)=3000  O9(D31)=423* | lastDir=-1 corrDir=-1 routeTurn=0 yaw=9.0
+State: PRE_CORRECT_STOP
+STATUS | US Front=43.2cm Left=24.9cm Right=NAcm | Yaw=9.0 | Kill=RUN | Planter=IDLE | State=PRE_CORRECT_STOP
+State: CORRECT_LEFT
+CORRECT_LEFT O1(D22)=175  O2(D23)=1  O3(D24)=149  O4(D25)=3000  O5(D26)=270  O6(D27)=3000  O7(D28)=569* O8(D30)=3000  O9(D31)=420* | lastDir=-1 corrDir=-1 routeTurn=0 yaw=9.0
+State: PRE_CORRECT_STOP
+State: CORRECT_LEFT
+CORRECT_LEFT O1(D22)=168  O2(D23)=1  O3(D24)=148  O4(D25)=3000  O5(D26)=260  O6(D27)=3000  O7(D28)=574* O8(D30)=3000  O9(D31)=419* | lastDir=-1 corrDir=-1 routeTurn=0 yaw=9.1
+State: PRE_CORRECT_STOP
+State: CORRECT_LEFT
+CORRECT_LEFT O1(D22)=172  O2(D23)=1  O3(D24)=148  O4(D25)=3000  O5(D26)=270  O6(D27)=3000  O7(D28)=572* O8(D30)=3000  O9(D31)=423* | lastDir=-1 corrDir=-1 routeTurn=0 yaw=9.1
+SENSE O1(D22)=182  O2(D23)=1  O3(D24)=166  O4(D25)=3000  O5(D26)=345* O6(D27)=3000  O7(D28)=503* O8(D30)=3000  O9(D31)=302* | lastDir=-1 corrDir=-1 routeTurn=0 yaw=6.2
+State: FORWARD_PULSE
+SENSE O1(D22)=169  O2(D23)=1  O3(D24)=147  O4(D25)=3000  O5(D26)=268  O6(D27)=3000  O7(D28)=574* O8(D30)=3000  O9(D31)=405* | lastDir=0 corrDir=0 routeTurn=0 yaw=7.5
+State: PRE_CORRECT_STOP
+STATUS | US Front=76.3cm Left=17.3cm Right=NAcm | Yaw=7.5 | Kill=RUN | Planter=IDLE | State=PRE_CORRECT_STOP
+State: CORRECT_LEFT
+CORRECT_LEFT O1(D22)=172  O2(D23)=1  O3(D24)=146  O4(D25)=3000  O5(D26)=272  O6(D27)=3000  O7(D28)=573* O8(D30)=3000  O9(D31)=415* | lastDir=-1 corrDir=-1 routeTurn=0 yaw=7.2
+State: PRE_CORRECT_STOP
+State: CORRECT_LEFT
+CORRECT_LEFT O1(D22)=168  O2(D23)=1  O3(D24)=148  O4(D25)=3000  O5(D26)=263  O6(D27)=3000  O7(D28)=574* O8(D30)=3000  O9(D31)=416* | lastDir=-1 corrDir=-1 routeTurn=0 yaw=7.4
+SENSE O1(D22)=180  O2(D23)=1  O3(D24)=167  O4(D25)=3000  O5(D26)=347* O6(D27)=3000  O7(D28)=503* O8(D30)=3000  O9(D31)=315* | lastDir=-1 corrDir=-1 routeTurn=0 yaw=4.8
+State: FORWARD_PULSE
+SENSE O1(D22)=170  O2(D23)=2  O3(D24)=150  O4(D25)=3000  O5(D26)=276  O6(D27)=3000  O7(D28)=573* O8(D30)=3000  O9(D31)=400* | lastDir=0 corrDir=0 routeTurn=0 yaw=6.0
+State: PRE_CORRECT_STOP
+State: CORRECT_LEFT
+CORRECT_LEFT O1(D22)=172  O2(D23)=1  O3(D24)=151  O4(D25)=3000  O5(D26)=287  O6(D27)=3000  O7(D28)=572* O8(D30)=3000  O9(D31)=378* | lastDir=-1 corrDir=-1 routeTurn=0 yaw=5.9
+State: PRE_CORRECT_STOP
+STATUS | US Front=75.8cm Left=17.9cm Right=NAcm | Yaw=5.7 | Kill=RUN | Planter=IDLE | State=PRE_CORRECT_STOP
+State: CORRECT_LEFT
+CORRECT_LEFT O1(D22)=174  O2(D23)=1  O3(D24)=152  O4(D25)=3000  O5(D26)=278  O6(D27)=3000  O7(D28)=571* O8(D30)=3000  O9(D31)=390* | lastDir=-1 corrDir=-1 routeTurn=0 yaw=5.7
+State: PRE_CORRECT_STOP
+State: CORRECT_LEFT
+CORRECT_LEFT O1(D22)=173  O2(D23)=2  O3(D24)=148  O4(D25)=3000  O5(D26)=285  O6(D27)=3000  O7(D28)=571* O8(D30)=3000  O9(D31)=390* | lastDir=-1 corrDir=-1 routeTurn=0 yaw=5.8
+SENSE O1(D22)=178  O2(D23)=1  O3(D24)=171  O4(D25)=3000  O5(D26)=340* O6(D27)=3000  O7(D28)=526* O8(D30)=3000  O9(D31)=310* | lastDir=-1 corrDir=-1 routeTurn=0 yaw=3.7
+State: FORWARD_PULSE
+SENSE O1(D22)=167  O2(D23)=1  O3(D24)=148  O4(D25)=3000  O5(D26)=278  O6(D27)=3000  O7(D28)=570* O8(D30)=3000  O9(D31)=401* | lastDir=0 corrDir=0 routeTurn=0 yaw=5.5
+State: PRE_CORRECT_STOP
+State: CORRECT_LEFT
+CORRECT_LEFT O1(D22)=173  O2(D23)=2  O3(D24)=154  O4(D25)=3000  O5(D26)=291  O6(D27)=3000  O7(D28)=563* O8(D30)=3000  O9(D31)=380* | lastDir=-1 corrDir=-1 routeTurn=0 yaw=5.3
+State: PRE_CORRECT_STOP
+STATUS | US Front=75.2cm Left=23.1cm Right=NAcm | Yaw=5.2 | Kill=RUN | Planter=IDLE | State=PRE_CORRECT_STOP
+State: CORRECT_LEFT
+CORRECT_LEFT O1(D22)=169  O2(D23)=1  O3(D24)=154  O4(D25)=3000  O5(D26)=291  O6(D27)=3000  O7(D28)=554* O8(D30)=3000  O9(D31)=381* | lastDir=-1 corrDir=-1 routeTurn=0 yaw=5.2
+State: PRE_CORRECT_STOP
+State: CORRECT_LEFT
+CORRECT_LEFT O1(D22)=174  O2(D23)=2  O3(D24)=153  O4(D25)=3000  O5(D26)=290  O6(D27)=3000  O7(D28)=568* O8(D30)=3000  O9(D31)=369* | lastDir=-1 corrDir=-1 routeTurn=0 yaw=5.1
+State: PRE_CORRECT_STOP
+State: CORRECT_LEFT
+CORRECT_LEFT O1(D22)=172  O2(D23)=1  O3(D24)=152  O4(D25)=3000  O5(D26)=292  O6(D27)=3000  O7(D28)=563* O8(D30)=3000  O9(D31)=378* | lastDir=-1 corrDir=-1 routeTurn=0 yaw=5.3
+State: PRE_CORRECT_STOP
+State: CORRECT_LEFT
+CORRECT_LEFT O1(D22)=173  O2(D23)=1  O3(D24)=152  O4(D25)=3000  O5(D26)=290  O6(D27)=3000  O7(D28)=567* O8(D30)=3000  O9(D31)=382* | lastDir=-1 corrDir=-1 routeTurn=0 yaw=5.1
+State: PRE_CORRECT_STOP
+STATUS | US Front=75.3cm Left=16.3cm Right=NAcm | Yaw=4.8 | Kill=RUN | Planter=IDLE | State=PRE_CORRECT_STOP
+State: CORRECT_LEFT
+CORRECT_LEFT O1(D22)=172  O2(D23)=1  O3(D24)=153  O4(D25)=3000  O5(D26)=284  O6(D27)=3000  O7(D28)=569* O8(D30)=3000  O9(D31)=380* | lastDir=-1 corrDir=-1 routeTurn=0 yaw=4.8
+State: PRE_CORRECT_STOP
+State: CORRECT_LEFT
+CORRECT_LEFT O1(D22)=168  O2(D23)=1  O3(D24)=152  O4(D25)=3000  O5(D26)=292  O6(D27)=3000  O7(D28)=556* O8(D30)=3000  O9(D31)=371* | lastDir=-1 corrDir=-1 routeTurn=0 yaw=4.9
+State: PRE_CORRECT_STOP
+State: CORRECT_LEFT
+CORRECT_LEFT O1(D22)=174  O2(D23)=2  O3(D24)=153  O4(D25)=3000  O5(D26)=288  O6(D27)=3000  O7(D28)=564* O8(D30)=3000  O9(D31)=372* | lastDir=-1 corrDir=-1 routeTurn=0 yaw=4.8
+State: PRE_CORRECT_STOP
+State: CORRECT_LEFT
+CORRECT_LEFT O1(D22)=174  O2(D23)=1  O3(D24)=153  O4(D25)=3000  O5(D26)=287  O6(D27)=3000  O7(D28)=564* O8(D30)=3000  O9(D31)=371* | lastDir=-1 corrDir=-1 routeTurn=0 yaw=4.8
+State: PRE_CORRECT_STOP
+STATUS | US Front=75.2cm Left=24.0cm Right=NAcm | Yaw=5.0 | Kill=RUN | Planter=IDLE | State=PRE_CORRECT_STOP
+State: CORRECT_LEFT
+CORRECT_LEFT O1(D22)=172  O2(D23)=2  O3(D24)=153  O4(D25)=3000  O5(D26)=283  O6(D27)=3000  O7(D28)=566* O8(D30)=3000  O9(D31)=368* | lastDir=-1 corrDir=-1 routeTurn=0 yaw=4.8
+State: PRE_CORRECT_STOP
+State: CORRECT_LEFT
+CORRECT_LEFT O1(D22)=173  O2(D23)=1  O3(D24)=151  O4(D25)=3000  O5(D26)=290  O6(D27)=3000  O7(D28)=569* O8(D30)=3000  O9(D31)=382* | lastDir=-1 corrDir=-1 routeTurn=0 yaw=4.9
+State: PRE_CORRECT_STOP
+State: CORRECT_LEFT
+CORRECT_LEFT O1(D22)=169  O2(D23)=1  O3(D24)=153  O
+
+
+
+
+---------------------------------------------------------------Example2_Turning_&_IMU--------------------------------------------------------
+
+--- Quit: Ctrl+C | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H
+IMU | Calibrating gyro Z. Keep the car still...
+IMU | Gyro Z bias = -0.141196 from 300 samples
+Line follower ready. Lower=0x10, Upper=0x11, IMU right-angle turns enabled.
+Correction enabled: side sensors correct; strong outer sensors trigger 90-degree IMU turns.
+REFLECT | Monitor format: O1(D22) O2(D23) O3(D24) O4(D25) O5(D26) O6(D27) O7(D28) O8(D30) O9(D31). '*' means over LINE_THRESHOLD.
+MONITOR | DECIDE shows T/junction logic. T_LEFT shows 11cm lead-in. TURN shows IMU angle. FIND_LINE shows recovery.
+REFLECT | SENSE | O1(D22)=584  O2(D23)=596  O3(D24)=679  O4(D25)=686  O5(D26)=853* O6(D27)=863* O7(D28)=797  O8(D30)=864* O9(D31)=835* | onAll=4 onOdd=2 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+DECIDE | allowJunction=Y outerLeft=Y outerRight=N junction=Y onAll=4 onOdd=2 routeTurn=0 yaw=0.0
+T_LEFT | Junction detected. Moving forward 11.0cm before left turn. ms=612
+T_LEFT | Finished forward lead-in. Sampling reflectance before IMU left turn.
+REFLECT | T_LEFT_PRE_TURN | O1(D22)=615  O2(D23)=641  O3(D24)=747  O4(D25)=752  O5(D26)=746  O6(D27)=815* O7(D28)=821* O8(D30)=720  O9(D31)=695  | onAll=2 onOdd=1 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+State: TURN_LEFT_90
+TURN | LEFT_90 yaw=1.2 delta=1.2/88.0
+TURN | LEFT_90 yaw=3.6 delta=3.6/88.0
+TURN | LEFT_90 yaw=5.8 delta=5.8/88.0
+TURN | LEFT_90 yaw=7.6 delta=7.6/88.0
+TURN | LEFT_90 yaw=9.4 delta=9.4/88.0
+TURN | LEFT_90 yaw=11.2 delta=11.2/88.0
+TURN | LEFT_90 yaw=13.0 delta=13.0/88.0
+TURN | LEFT_90 yaw=14.7 delta=14.7/88.0
+TURN | LEFT_90 yaw=16.5 delta=16.5/88.0
+TURN | LEFT_90 yaw=18.4 delta=18.4/88.0
+TURN | LEFT_90 yaw=20.4 delta=20.4/88.0
+TURN | LEFT_90 yaw=22.6 delta=22.6/88.0
+TURN | LEFT_90 yaw=24.8 delta=24.8/88.0
+TURN | LEFT_90 yaw=27.2 delta=27.2/88.0
+TURN | LEFT_90 yaw=29.5 delta=29.5/88.0
+TURN | LEFT_90 yaw=31.7 delta=31.7/88.0
+TURN | LEFT_90 yaw=33.8 delta=33.8/88.0
+TURN | LEFT_90 yaw=35.9 delta=35.9/88.0
+TURN | LEFT_90 yaw=37.8 delta=37.8/88.0
+TURN | LEFT_90 yaw=39.6 delta=39.6/88.0
+TURN | LEFT_90 yaw=41.4 delta=41.4/88.0
+TURN | LEFT_90 yaw=43.4 delta=43.4/88.0
+TURN | LEFT_90 yaw=45.1 delta=45.1/88.0
+TURN | LEFT_90 yaw=46.6 delta=46.6/88.0
+TURN | LEFT_90 yaw=48.1 delta=48.1/88.0
+
+
+-----------------------------------------------------Example3_Line_Following_Test----------------------------------------------------
+
+Reconnecting to /dev/cu.usbmodem101 ..   Connected!
+REFLECT | REFLECT_ONLY | O1(D22)=617  O2(D23)=641  O3(D24)=738  O4(D25)=744  O5(D26)=791  O6(D27)=839* O7(D28)=838* O8(D30)=778  O9(D31)=744  | onAll=2 onOdd=1 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=617  O2(D23)=646  O3(D24)=739  O4(D25)=743  O5(D26)=790  O6(D27)=845* O7(D28)=835* O8(D30)=790  O9(D31)=750  | onAll=2 onOdd=1 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=622  O2(D23)=647  O3(D24)=741  O4(D25)=746  O5(D26)=803  O6(D27)=854* O7(D28)=841* O8(D30)=802  O9(D31)=767  | onAll=2 onOdd=1 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=624  O2(D23)=647  O3(D24)=739  O4(D25)=742  O5(D26)=803  O6(D27)=853* O7(D28)=840* O8(D30)=800  O9(D31)=770  | onAll=2 onOdd=1 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=627  O2(D23)=648  O3(D24)=744  O4(D25)=746  O5(D26)=807  O6(D27)=854* O7(D28)=839* O8(D30)=801  O9(D31)=772  | onAll=2 onOdd=1 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=626  O2(D23)=648  O3(D24)=744  O4(D25)=741  O5(D26)=816* O6(D27)=862* O7(D28)=844* O8(D30)=814* O9(D31)=783  | onAll=4 onOdd=2 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=629  O2(D23)=653  O3(D24)=742  O4(D25)=745  O5(D26)=829* O6(D27)=869* O7(D28)=843* O8(D30)=833* O9(D31)=804  | onAll=4 onOdd=2 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=632  O2(D23)=654  O3(D24)=751  O4(D25)=747  O5(D26)=835* O6(D27)=871* O7(D28)=840* O8(D30)=841* O9(D31)=809  | onAll=4 onOdd=2 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=630  O2(D23)=655  O3(D24)=741  O4(D25)=743  O5(D26)=831* O6(D27)=867* O7(D28)=840* O8(D30)=842* O9(D31)=810* | onAll=5 onOdd=3 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=633  O2(D23)=653  O3(D24)=741  O4(D25)=738  O5(D26)=869* O6(D27)=882* O7(D28)=839* O8(D30)=887* O9(D31)=857* | onAll=5 onOdd=3 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=646  O2(D23)=661  O3(D24)=749  O4(D25)=746  O5(D26)=890* O6(D27)=899* O7(D28)=850* O8(D30)=935* O9(D31)=891* | onAll=5 onOdd=3 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=630  O2(D23)=642  O3(D24)=724  O4(D25)=715  O5(D26)=912* O6(D27)=894* O7(D28)=814* O8(D30)=953* O9(D31)=932* | onAll=5 onOdd=3 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=579  O2(D23)=585  O3(D24)=643  O4(D25)=634  O5(D26)=908* O6(D27)=837* O7(D28)=732  O8(D30)=1005* O9(D31)=1001* | onAll=4 onOdd=2 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=546  O2(D23)=547  O3(D24)=592  O4(D25)=584  O5(D26)=887* O6(D27)=799  O7(D28)=681  O8(D30)=1004* O9(D31)=1020* | onAll=3 onOdd=2 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=509  O2(D23)=501  O3(D24)=542  O4(D25)=516  O5(D26)=842* O6(D27)=721  O7(D28)=601  O8(D30)=1010* O9(D31)=1074* | onAll=3 onOdd=2 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=472  O2(D23)=454  O3(D24)=467  O4(D25)=432  O5(D26)=678  O6(D27)=560  O7(D28)=478  O8(D30)=896* O9(D31)=1096* | onAll=2 onOdd=1 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=455  O2(D23)=430  O3(D24)=443  O4(D25)=392  O5(D26)=578  O6(D27)=488  O7(D28)=424  O8(D30)=783  O9(D31)=1004* | onAll=1 onOdd=1 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=447  O2(D23)=424  O3(D24)=423  O4(D25)=379  O5(D26)=540  O6(D27)=468  O7(D28)=409  O8(D30)=733  O9(D31)=957* | onAll=1 onOdd=1 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=440  O2(D23)=414  O3(D24)=412  O4(D25)=363  O5(D26)=490  O6(D27)=424  O7(D28)=378  O8(D30)=653  O9(D31)=857* | onAll=1 onOdd=1 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=430  O2(D23)=406  O3(D24)=401  O4(D25)=351  O5(D26)=463  O6(D27)=409  O7(D28)=366  O8(D30)=628  O9(D31)=823* | onAll=1 onOdd=1 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=428  O2(D23)=398  O3(D24)=396  O4(D25)=351  O5(D26)=476  O6(D27)=414  O7(D28)=367  O8(D30)=641  O9(D31)=855* | onAll=1 onOdd=1 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=418  O2(D23)=389  O3(D24)=388  O4(D25)=348  O5(D26)=503  O6(D27)=424  O7(D28)=371  O8(D30)=686  O9(D31)=924* | onAll=1 onOdd=1 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=423  O2(D23)=397  O3(D24)=404  O4(D25)=364  O5(D26)=577  O6(D27)=474  O7(D28)=403  O8(D30)=798  O9(D31)=1033* | onAll=1 onOdd=1 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=447  O2(D23)=429  O3(D24)=443  O4(D25)=420  O5(D26)=722  O6(D27)=590  O7(D28)=485  O8(D30)=948* O9(D31)=1087* | onAll=2 onOdd=1 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=478  O2(D23)=469  O3(D24)=504  O4(D25)=494  O5(D26)=827* O6(D27)=707  O7(D28)=584  O8(D30)=978* O9(D31)=1016* | onAll=3 onOdd=2 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=498  O2(D23)=500  O3(D24)=550  O4(D25)=549  O5(D26)=858* O6(D27)=778  O7(D28)=667  O8(D30)=927* O9(D31)=902* | onAll=3 onOdd=2 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=556  O2(D23)=567  O3(D24)=653  O4(D25)=664  O5(D26)=803  O6(D27)=828* O7(D28)=779  O8(D30)=795  O9(D31)=753  | onAll=1 onOdd=0 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=600  O2(D23)=625  O3(D24)=723  O4(D25)=733  O5(D26)=740  O6(D27)=808  O7(D28)=819* O8(D30)=716  O9(D31)=689  | onAll=1 onOdd=1 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=653  O2(D23)=692  O3(D24)=805  O4(D25)=793  O5(D26)=650  O6(D27)=752  O7(D28)=823* O8(D30)=629  O9(D31)=612  | onAll=1 onOdd=1 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=719  O2(D23)=766  O3(D24)=881* O4(D25)=817* O5(D26)=570  O6(D27)=670  O7(D28)=777  O8(D30)=557  O9(D31)=552  | onAll=2 onOdd=1 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=765  O2(D23)=811* O3(D24)=913* O4(D25)=821* O5(D26)=532  O6(D27)=631  O7(D28)=741  O8(D30)=529  O9(D31)=541  | onAll=3 onOdd=1 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=830* O2(D23)=873* O3(D24)=935* O4(D25)=799  O5(D26)=497  O6(D27)=586  O7(D28)=695  O8(D30)=499  O9(D31)=511  | onAll=3 onOdd=2 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=896* O2(D23)=918* O3(D24)=945* O4(D25)=764  O5(D26)=466  O6(D27)=542  O7(D28)=644  O8(D30)=478  O9(D31)=496  | onAll=3 onOdd=2 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=885* O2(D23)=907* O3(D24)=951* O4(D25)=778  O5(D26)=473  O6(D27)=554  O7(D28)=662  O8(D30)=485  O9(D31)=501  | onAll=3 onOdd=2 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=857* O2(D23)=888* O3(D24)=946* O4(D25)=798  O5(D26)=493  O6(D27)=580  O7(D28)=689  O8(D30)=499  O9(D31)=521  | onAll=3 onOdd=2 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=822* O2(D23)=863* O3(D24)=945* O4(D25)=823* O5(D26)=525  O6(D27)=618  O7(D28)=733  O8(D30)=525  O9(D31)=533  | onAll=4 onOdd=2 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=775  O2(D23)=814* O3(D24)=925* O4(D25)=851* O5(D26)=627  O6(D27)=727  O7(D28)=828* O8(D30)=619  O9(D31)=618  | onAll=4 onOdd=2 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=645  O2(D23)=674  O3(D24)=779  O4(D25)=773  O5(D26)=710  O6(D27)=803  O7(D28)=841* O8(D30)=702  O9(D31)=674  | onAll=1 onOdd=1 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=536  O2(D23)=545  O3(D24)=612  O4(D25)=627  O5(D26)=816* O6(D27)=815* O7(D28)=739  O8(D30)=826* O9(D31)=789  | onAll=3 onOdd=1 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=488  O2(D23)=484  O3(D24)=533  O4(D25)=526  O5(D26)=850* O6(D27)=756  O7(D28)=634  O8(D30)=949* O9(D31)=952* | onAll=3 onOdd=2 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=466  O2(D23)=449  O3(D24)=489  O4(D25)=461  O5(D26)=814* O6(D27)=667  O7(D28)=544  O8(D30)=976* O9(D31)=1042* | onAll=3 onOdd=2 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=451  O2(D23)=431  O3(D24)=447  O4(D25)=418  O5(D26)=727  O6(D27)=589  O7(D28)=482  O8(D30)=941* O9(D31)=1092* | onAll=2 onOdd=1 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=439  O2(D23)=413  O3(D24)=421  O4(D25)=384  O5(D26)=628  O6(D27)=515  O7(D28)=429  O8(D30)=855* O9(D31)=1069* | onAll=2 onOdd=1 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=425  O2(D23)=399  O3(D24)=401  O4(D25)=360  O5(D26)=558  O6(D27)=462  O7(D28)=391  O8(D30)=771  O9(D31)=1003* | onAll=1 onOdd=1 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=420  O2(D23)=392  O3(D24)=397  O4(D25)=353  O5(D26)=545  O6(D27)=451  O7(D28)=384  O8(D30)=758  O9(D31)=996* | onAll=1 onOdd=1 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=423  O2(D23)=394  O3(D24)=400  O4(D25)=364  O5(D26)=570  O6(D27)=469  O7(D28)=395  O8(D30)=786  O9(D31)=1023* | onAll=1 onOdd=1 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=423  O2(D23)=398  O3(D24)=407  O4(D25)=372  O5(D26)=616  O6(D27)=501  O7(D28)=415  O8(D30)=842* O9(D31)=1062* | onAll=2 onOdd=1 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=426  O2(D23)=404  O3(D24)=410  O4(D25)=380  O5(D26)=640  O6(D27)=519  O7(D28)=428  O8(D30)=876* O9(D31)=1074* | onAll=2 onOdd=1 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=435  O2(D23)=412  O3(D24)=428  O4(D25)=399  O5(D26)=692  O6(D27)=556  O7(D28)=457  O8(D30)=922* O9(D31)=1092* | onAll=2 onOdd=1 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=447  O2(D23)=432  O3(D24)=455  O4(D25)=440  O5(D26)=777  O6(D27)=637  O7(D28)=514  O8(D30)=970* O9(D31)=1054* | onAll=2 onOdd=1 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=468  O2(D23)=458  O3(D24)=498  O4(D25)=487  O5(D26)=834* O6(D27)=713  O7(D28)=585  O8(D30)=966* O9(D31)=982* | onAll=3 onOdd=2 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=489  O2(D23)=487  O3(D24)=534  O4(D25)=534  O5(D26)=855* O6(D27)=766  O7(D28)=648  O8(D30)=924* O9(D31)=900* | onAll=3 onOdd=2 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=528  O2(D23)=535  O3(D24)=605  O4(D25)=619  O5(D26)=826* O6(D27)=822* O7(D28)=740  O8(D30)=839* O9(D31)=798  | onAll=3 onOdd=1 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=573  O2(D23)=596  O3(D24)=684  O4(D25)=692  O5(D26)=792  O6(D27)=834* O7(D28)=798  O8(D30)=786  O9(D31)=758  | onAll=1 onOdd=0 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=624  O2(D23)=652  O3(D24)=756  O4(D25)=761  O5(D26)=735  O6(D27)=816* O7(D28)=835* O8(D30)=716  O9(D31)=690  | onAll=2 onOdd=1 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=712  O2(D23)=757  O3(D24)=868* O4(D25)=829* O5(D26)=636  O6(D27)=731  O7(D28)=822* O8(D30)=618  O9(D31)=609  | onAll=3 onOdd=2 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=828* O2(D23)=868* O3(D24)=950* O4(D25)=830* O5(D26)=545  O6(D27)=640  O7(D28)=747  O8(D30)=546  O9(D31)=558  | onAll=4 onOdd=2 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=822* O2(D23)=864* O3(D24)=944* O4(D25)=835* O5(D26)=554  O6(D27)=647  O7(D28)=758  O8(D30)=558  O9(D31)=565  | onAll=4 onOdd=2 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=802  O2(D23)=843* O3(D24)=944* O4(D25)=847* O5(D26)=584  O6(D27)=680  O7(D28)=781  O8(D30)=582  O9(D31)=584  | onAll=3 onOdd=1 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=771  O2(D23)=815* O3(D24)=920* O4(D25)=848* O5(D26)=605  O6(D27)=705  O7(D28)=805  O8(D30)=598  O9(D31)=599  | onAll=3 onOdd=1 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=752  O2(D23)=798  O3(D24)=902* O4(D25)=840* O5(D26)=617  O6(D27)=723  O7(D28)=817* O8(D30)=607  O9(D31)=605  | onAll=3 onOdd=2 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=710  O2(D23)=751  O3(D24)=862* O4(D25)=830* O5(D26)=653  O6(D27)=753  O7(D28)=835* O8(D30)=642  O9(D31)=627  | onAll=3 onOdd=2 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=666  O2(D23)=699  O3(D24)=800  O4(D25)=796  O5(D26)=724  O6(D27)=811* O7(D28)=848* O8(D30)=709  O9(D31)=686  | onAll=2 onOdd=1 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=574  O2(D23)=590  O3(D24)=662  O4(D25)=668  O5(D26)=849* O6(D27)=846* O7(D28)=779  O8(D30)=867* O9(D31)=836* | onAll=4 onOdd=2 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=517  O2(D23)=512  O3(D24)=552  O4(D25)=539  O5(D26)=869* O6(D27)=755  O7(D28)=631  O8(D30)=998* O9(D31)=1030* | onAll=3 onOdd=2 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=480  O2(D23)=466  O3(D24)=494  O4(D25)=468  O5(D26)=785  O6(D27)=654  O7(D28)=542  O8(D30)=995* O9(D31)=1087* | onAll=2 onOdd=1 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=461  O2(D23)=442  O3(D24)=457  O4(D25)=426  O5(D26)=703  O6(D27)=584  O7(D28)=484  O8(D30)=928* O9(D31)=1099* | onAll=2 onOdd=1 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=463  O2(D23)=442  O3(D24)=456  O4(D25)=419  O5(D26)=676  O6(D27)=566  O7(D28)=466  O8(D30)=901* O9(D31)=1094* | onAll=2 onOdd=1 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=449  O2(D23)=428  O3(D24)=439  O4(D25)=406  O5(D26)=656  O6(D27)=543  O7(D28)=451  O8(D30)=882* O9(D31)=1086* | onAll=2 onOdd=1 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=454  O2(D23)=428  O3(D24)=438  O4(D25)=406  O5(D26)=657  O6(D27)=542  O7(D28)=451  O8(D30)=881* O9(D31)=1087* | onAll=2 onOdd=1 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=439  O2(D23)=421  O3(D24)=431  O4(D25)=397  O5(D26)=661  O6(D27)=543  O7(D28)=448  O8(D30)=889* O9(D31)=1085* | onAll=2 onOdd=1 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=441  O2(D23)=421  O3(D24)=431  O4(D25)=400  O5(D26)=669  O6(D27)=545  O7(D28)=449  O8(D30)=896* O9(D31)=1092* | onAll=2 onOdd=1 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=450  O2(D23)=424  O3(D24)=442  O4(D25)=410  O5(D26)=684  O6(D27)=562  O7(D28)=464  O8(D30)=915* O9(D31)=1094* | onAll=2 onOdd=1 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=455  O2(D23)=439  O3(D24)=455  O4(D25)=424  O5(D26)=713  O6(D27)=584  O7(D28)=482  O8(D30)=938* O9(D31)=1104* | onAll=2 onOdd=1 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=465  O2(D23)=444  O3(D24)=463  O4(D25)=435  O5(D26)=733  O6(D27)=605  O7(D28)=502  O8(D30)=954* O9(D31)=1105* | onAll=2 onOdd=1 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=460  O2(D23)=442  O3(D24)=472  O4(D25)=439  O5(D26)=750  O6(D27)=614  O7(D28)=505  O8(D30)=965* O9(D31)=1094* | onAll=2 onOdd=1 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=461  O2(D23)=442  O3(D24)=466  O4(D25)=442  O5(D26)=751  O6(D27)=620  O7(D28)=508  O8(D30)=965* O9(D31)=1096* | onAll=2 onOdd=1 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=461  O2(D23)=443  O3(D24)=469  O4(D25)=440  O5(D26)=754  O6(D27)=617  O7(D28)=510  O8(D30)=968* O9(D31)=1093* | onAll=2 onOdd=1 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=462  O2(D23)=445  O3(D24)=467  O4(D25)=440  O5(D26)=753  O6(D27)=620  O7(D28)=508  O8(D30)=965* O9(D31)=1095* | onAll=2 onOdd=1 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=464  O2(D23)=446  O3(D24)=466  O4(D25)=440  O5(D26)=758  O6(D27)=623  O7(D28)=509  O8(D30)=972* O9(D31)=1098* | onAll=2 onOdd=1 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=462  O2(D23)=446  O3(D24)=468  O4(D25)=442  O5(D26)=758  O6(D27)=623  O7(D28)=512  O8(D30)=967* O9(D31)=1088* | onAll=2 onOdd=1 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+REFLECT | REFLECT_ONLY | O1(D22)=461  O2(D23)=447  O3(D24)=469  O4(D25)=440  O5(D26)=753  O6(D27)=627  O7(D28)=512  O8(D30)=972* O9(D31)=1093* | onAll=2 onOdd=1 th=810 strong=810| lastDir=0 corrDir=0 routeTurn=0 yaw=0.0
+
+
